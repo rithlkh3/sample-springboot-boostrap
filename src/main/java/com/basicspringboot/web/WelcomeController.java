@@ -24,4 +24,15 @@ public class WelcomeController {
         return "welcome";
     }
 
+    @RequestMapping(value = "/home")
+    public String homePage(Map<String,Object> model){
+        model.put("message",this.message);
+        return "home";
+    }
+
+    @RequestMapping(value = "/homejsp")
+    public String homePageJSP(){
+        return "homejsp";
+    }
+
 }

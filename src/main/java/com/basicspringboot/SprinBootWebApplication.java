@@ -36,13 +36,15 @@ public class SprinBootWebApplication implements CommandLineRunner {
 
         Post post = new Post("test 1", "test 1 content");
 
+        post.setTitle("dsadsadsd");
+
         postRepository.save(post);
 
-        logger.debug(post);
+        System.out.println(post);
 
         List<Post> postList = (List<Post>) postRepository.findAll();
 
-        logger.debug(postList.get(0).toString());
+        System.out.println(postList.get(0).toString());
     }
 }
 

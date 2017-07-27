@@ -36,6 +36,14 @@
             <version>3.3.7</version>
         </dependency>
 
+        <!-- Replace Setter & Getter ... -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.18</version>
+            <scope>provided</scope>
+        </dependency>
+
         <!-- Configure data-jpa with PostgreSQL Database -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
