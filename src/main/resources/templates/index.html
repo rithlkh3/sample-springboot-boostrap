@@ -27,7 +27,7 @@
 </nav>
 <div class="container">
     <div class="form-group">
-        <a th:href="@{'save'}">create</a>
+        <a th:href="@{'/save'}">create</a>
     </div>
    <table class="table">
         <thead class="thead-inverse">
@@ -44,8 +44,8 @@
                 <td scope="row">#</td>
                 <td th:text="${user.firstName}"></td>
                 <td th:text="${user.email}"></td>
-                <td> <a th:href="${'users/edit/'+user.id}">edit</a></td>
-                <td> <a th:href="${'users/delete/'+user.id}">delete</a></td>
+                <td> <a th:href="${'/users/'+user.id+'/edit'}">edit</a></td>
+                <td> <a th:href="${'/users/'+user.id+'/delete'}">delete</a></td>
             </tr>
         </tbody>
    </table>

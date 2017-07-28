@@ -22,24 +22,24 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @RequestMapping(value = "/users", method = RequestMethod.GET)
+    @RequestMapping(value = {"/users"}, method = RequestMethod.GET)
     public ModelAndView index() {
         List<User> userList = (List<User>) userRepository.findAll();
         return new ModelAndView("index", "users", userList);
     }
 
-    @RequestMapping(value = "/save", method = RequestMethod.GET)
+    @RequestMapping(value = "/create", method = RequestMethod.GET)
     public ModelAndView show(Model model) {
         return new ModelAndView("save", "command", new User());
     }
 
-    @RequestMapping(value = "users/save", method = RequestMethod.POST)
+    @RequestMapping(value = "users/create", method = RequestMethod.POST)
     public ModelAndView store(@Valid User user) {
         userRepository.save(user);
         return new ModelAndView("redirect:/users");
     }
 
-    @RequestMapping(value = "users/edit/{id}")
+    @RequestMapping(value = "users/{id}/edit")
     public String edit(@PathVariable Long id, Model model) {
         model.addAttribute("user", userRepository.findOne(id));
         return "/edit";
@@ -51,7 +51,7 @@ public class UserController {
         return "redirect:/users";
     }
 
-    @RequestMapping(value = "users/delete/{id}")
+    @RequestMapping(value = "users/{id}/delete")
     public String delete(@PathVariable Long id) {
         userRepository.delete(id);
         return "redirect:/users";
