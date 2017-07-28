@@ -30,9 +30,4 @@ public class WelcomeController {
         return "home";
     }
 
-    @RequestMapping(value = "/homejsp")
-    public String homePageJSP(){
-        return "homejsp";
-    }
-
 }

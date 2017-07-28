@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <!-- 2- Config boostrap stylesheet -->
+    <link rel="stylesheet" type="text/css"
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../../css/main.css"/>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <!--container-->
+    <div class="container">
+        <!--header-->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Spring Boot</a>
+        </div>
+        <!--navigation-->
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="form-group">
+        <a th:href="@{'save'}">create</a>
+    </div>
+   <table class="table">
+        <thead class="thead-inverse">
+            <tr>
+                <th>No.</th>
+                <th>First Name</th>
+                <th>Email</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user: ${users}">
+                <td scope="row">#</td>
+                <td th:text="${user.firstName}"></td>
+                <td th:text="${user.email}"></td>
+                <td> <a th:href="${'users/edit/'+user.id}">edit</a></td>
+                <td> <a th:href="${'users/delete/'+user.id}">delete</a></td>
+            </tr>
+        </tbody>
+   </table>
+    <div class="row">
+        <div class="col-md-12">
+            <footer>
+                <p>&copy; Copyright 2017</p>
+            </footer>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
