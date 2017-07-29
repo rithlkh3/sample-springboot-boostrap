@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <!-- 2- Config boostrap stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+   <!-- <link rel="stylesheet" type="text/css"
+    href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />-->
+    <link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css"/>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+<div th:replace="fragments/header :: header"/>
+<div class="container">
+    <div>
+        <h2>User Detail</h2>
+        <div>
+            <form class="form-horizontal" th:object="${users}" method="POST">
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Product ID:</label>
+                    <div class="col-md-10">
+                        <p class="form-control-static" th:text="${users.id}"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">First Name:</label>
+                    <div class="col-md-10">
+                        <p class="form-control-static" th:text="${users.firstName}"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Last Name:</label>
+                    <div class="col-md-10">
+                        <p class="form-control-static" th:text="${users.lastName}"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">User Email</label>
+                    <div class="col-md-10">
+                        <p class="form-control-static" th:text="${users.email}"></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div th:replace="fragments/footer :: footer"/>
+</div>
+</body>
+</html>

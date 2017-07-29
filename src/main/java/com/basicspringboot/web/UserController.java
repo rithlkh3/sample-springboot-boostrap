@@ -28,7 +28,7 @@ public class UserController {
         return new ModelAndView("index", "users", userList);
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.GET)
+    @RequestMapping(value = "/users/create", method = RequestMethod.GET)
     public ModelAndView show(Model model) {
         return new ModelAndView("save", "command", new User());
     }
@@ -39,13 +39,13 @@ public class UserController {
         return new ModelAndView("redirect:/users");
     }
 
-    @RequestMapping(value = "users/{id}/edit")
+    @RequestMapping(value = "/users/{id}/edit")
     public String edit(@PathVariable Long id, Model model) {
         model.addAttribute("user", userRepository.findOne(id));
         return "/edit";
     }
 
-    @RequestMapping(value = "users/edit", method = RequestMethod.POST)
+    @RequestMapping(value = "/users/edit", method = RequestMethod.POST)
     public String update(User user) {
         userRepository.save(user);
         return "redirect:/users";
@@ -57,4 +57,9 @@ public class UserController {
         return "redirect:/users";
     }
 
+    @RequestMapping(value = "users/{id}")
+    public String detailPage(@PathVariable Long id,Model model){
+        model.addAttribute("users",userRepository.findOne(id));
+        return "detail";
+    }
 }
